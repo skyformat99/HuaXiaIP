@@ -1,4 +1,5 @@
 @import './resonsive.scss';
+@import './animation.scss';
 
 $fontStack:"Open Sans","Helvetica Neue",Helvetica,Arial,"Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 $yellow:#FCD054;
@@ -181,7 +182,7 @@ body {
         }
         span.active{
           display:inline-block;
-          animation: animationStyle1 1s ease-in-out forwards;
+          animation: rotateX 1s ease-in-out forwards;
           backface-visibility: hidden;
           transition: all .4s cubic-bezier(.2, .85, .4, 1.275);
           transform-origin: 50% 50%;
@@ -234,6 +235,9 @@ body {
         &:hover{
           box-shadow: 3px 5px 20px rgba(0,0,0,0.3);
           transition:all 0.3s;
+          .p-icon{
+            animation: rubberBand 1s ease-in-out;
+          }
         }
         &:nth-child(1){
           .p-icon{
@@ -266,6 +270,10 @@ body {
             }
           }
         }
+      }
+      li.animate{
+        animation: flipInX 1s ease-in-out forwards;
+        backface-visibility: visible!important;
       }
     }
   }
@@ -375,11 +383,11 @@ body {
         }
       }
       li.animate{
-        animation: animationStyle2 ease-in-out forwards;
+        animation: fadeInUp ease-in-out forwards;
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
-            animation-duration: 550ms;
-            animation-delay: (150ms * $i) - 150;
+            animation-duration: 800ms;
+            animation-delay: (200ms * $i)-50ms;
           }
         }
       }
@@ -437,6 +445,15 @@ body {
             }
             .text-detail{
               display:none;
+            }
+          }
+        }
+        li.animate{
+          animation: bounceInLeft;
+          @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+              animation-duration: 600ms;
+              animation-delay: (200ms * $i);
             }
           }
         }
@@ -620,6 +637,10 @@ body {
 
           }
         }
+      }
+      li.animate{
+        animation: flipInY 1s ease-in-out forwards;
+        backface-visibility: visible!important;
       }
     }
   }
@@ -816,136 +837,73 @@ body {
 }
 
 
-@keyframes animationStyle1 {
-  0% {
-    opacity: 0.8;
-    transform: rotateX(-180deg);
-  }
-  85% {
-    opacity: 1;
-    transform: rotateX(20deg);
-  }
-  100% {
-    opacity: 1;
-    transform: rotateX(0deg);
-  }
-}
 
-@keyframes animationStyle2 {
-  0% {
-    opacity: 0;
-    transform: translateY(180px);
-  }
-  100% {
-    opacity: 1;
-    transform:translateY(0);
-  }
-}
-
-
-.loader-ct{
-  background:#181818;
-  width:100%;
-  height:100%;
+.loader-ct {
+  background: #181818;
+  width: 100%;
+  height: 100%;
   position: relative;
-  .loader-inner{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+  .loader-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .ball-grid-pulse {
+    width: 57px;
+    div {
+      background-color: #fff;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      margin: 2px;
+      animation-fill-mode: both;
+      display: inline-block;
+      animation-name: ball-grid-pulse;
+      animation-iteration-count: infinite;
+      animation-delay: 0;
+      &:nth-child(1) {
+        animation-delay: -0.09s;
+        animation-duration: 0.81s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.52s;
+        animation-duration: 1.12s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.41s;
+        animation-duration: 1.57s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.72s;
+        animation-duration: 0.73s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.7s;
+        animation-duration: 1.45s;
+      }
+      &:nth-child(6) {
+        animation-delay: 0.31s;
+        animation-duration: 0.86s;
+      }
+      &:nth-child(7) {
+        animation-delay: 0.43s;
+        animation-duration: 1.5s;
+      }
+      &:nth-child(8) {
+        animation-delay: 0.18s;
+        animation-duration: 1.35s;
+      }
+      &:nth-child(9) {
+        animation-delay: 0.57s;
+        animation-duration: 1.4s;
+      }
+    }
   }
 }
 
 
-@-webkit-keyframes ball-grid-pulse {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1); }
 
-  50% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    opacity: 0.7; }
 
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1; } }
 
-@keyframes ball-grid-pulse {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1); }
 
-  50% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    opacity: 0.7; }
-
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1; } }
-
-.ball-grid-pulse {
-  width: 57px; }
-.ball-grid-pulse > div:nth-child(1) {
-  -webkit-animation-delay: -0.09s;
-  animation-delay: -0.09s;
-  -webkit-animation-duration: 0.81s;
-  animation-duration: 0.81s; }
-.ball-grid-pulse > div:nth-child(2) {
-  -webkit-animation-delay: 0.52s;
-  animation-delay: 0.52s;
-  -webkit-animation-duration: 1.12s;
-  animation-duration: 1.12s; }
-.ball-grid-pulse > div:nth-child(3) {
-  -webkit-animation-delay: 0.41s;
-  animation-delay: 0.41s;
-  -webkit-animation-duration: 1.57s;
-  animation-duration: 1.57s; }
-.ball-grid-pulse > div:nth-child(4) {
-  -webkit-animation-delay: 0.72s;
-  animation-delay: 0.72s;
-  -webkit-animation-duration: 0.73s;
-  animation-duration: 0.73s; }
-.ball-grid-pulse > div:nth-child(5) {
-  -webkit-animation-delay: 0.7s;
-  animation-delay: 0.7s;
-  -webkit-animation-duration: 1.45s;
-  animation-duration: 1.45s; }
-.ball-grid-pulse > div:nth-child(6) {
-  -webkit-animation-delay: 0.31s;
-  animation-delay: 0.31s;
-  -webkit-animation-duration: 0.86s;
-  animation-duration: 0.86s; }
-.ball-grid-pulse > div:nth-child(7) {
-  -webkit-animation-delay: 0.43s;
-  animation-delay: 0.43s;
-  -webkit-animation-duration: 1.5s;
-  animation-duration: 1.5s; }
-.ball-grid-pulse > div:nth-child(8) {
-  -webkit-animation-delay: 0.18s;
-  animation-delay: 0.18s;
-  -webkit-animation-duration: 1.35s;
-  animation-duration: 1.35s; }
-.ball-grid-pulse > div:nth-child(9) {
-  -webkit-animation-delay: 0.57s;
-  animation-delay: 0.57s;
-  -webkit-animation-duration: 1.4s;
-  animation-duration: 1.4s; }
-.ball-grid-pulse > div {
-  background-color: #fff;
-  width: 15px;
-  height: 15px;
-  border-radius: 100%;
-  margin: 2px;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  display: inline-block;
-  -webkit-animation-name: ball-grid-pulse;
-  animation-name: ball-grid-pulse;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-delay: 0;
-  animation-delay: 0; }
