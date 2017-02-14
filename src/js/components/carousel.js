@@ -44,7 +44,7 @@ Slider.prototype = {
 
 document.addEventListener('DOMContentLoaded', function () {
     var imgLoad0 = imagesLoaded( '.imgitems', { background: true }, function() {
-        console.log('img loaded');
+
     });
     imgLoad0.on( 'done', function() {
         $('.loader-ct').css({'display':'none'});

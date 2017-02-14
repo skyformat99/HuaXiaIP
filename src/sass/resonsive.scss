@@ -42,7 +42,7 @@ $fontgray:#818181;
     top:70px;
     left:0;
     width:100%;
-    background: $bgblack;
+    background: #fff;
     display:none;
   }
   @include mq($from: mobile,$until: mobileLandscape) {
@@ -50,7 +50,7 @@ $fontgray:#818181;
     top:70px;
     left:0;
     width:100%;
-    background: $bgblack;
+    background: #fff;
     display:none;
   }
   @include mq($from: mobileLandscape,$until: tablet) {
@@ -58,7 +58,7 @@ $fontgray:#818181;
     top:70px;
     left:0;
     width:100%;
-    background: $bgblack;
+    background: #fff;
     display:none;
 
   }
@@ -73,7 +73,7 @@ $fontgray:#818181;
   @include mq($until: mobile) {
     height:3rem;
     line-height:3rem;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #eee;
     text-align: left;
     padding-left:1.5rem;
     font-size:0.8rem;
@@ -82,7 +82,7 @@ $fontgray:#818181;
     height:3rem;
     line-height:3rem;
     width:100%;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #eee;
     text-align: left;
     padding-left:1.5rem;
     font-size:0.8rem;
@@ -91,7 +91,7 @@ $fontgray:#818181;
     height:3rem;
     line-height:3rem;
     width:100%;
-    border-bottom: 1px solid #777;
+    border-bottom: 1px solid #eee;
     text-align: left;
     padding-left:1.5rem;
     font-size:0.8rem;
@@ -117,10 +117,10 @@ $fontgray:#818181;
     border-top: none;
   }
   @include mq($from: tablet,$until: desktop) {
-
+    border-top:3px solid $yellow;
   }
   @include mq($from: desktop) {
-
+    border-top:3px solid $yellow;
   }
 }
 #carousel{

@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20120731 at Mon Feb 13 19:41:51 2017
+Created by FontForge 20120731 at Tue Feb 14 10:03:43 2017
  By admin
 </metadata>
 <defs>
@@ -49,6 +49,8 @@ t-12.5 -33t-33.5 -12.5t-37.5 13t-16.5 32.5t16.5 32.5t37.5 13zM245 472q-22 0 -38.
 q36 0 109 18l99 -54l-27 91q127 95 127 208zM616 228q-13 0 -24.5 11t-11.5 24.5t11.5 25t24.5 11.5q20 0 33 -11t13 -25.5t-13 -25t-33 -10.5zM816 228q-14 0 -25 11t-11 24.5t11 25t25 11.5q19 0 32 -11t13 -25.5t-13 -25t-32 -10.5z" />
     <glyph glyph-name="jia" unicode="&#xe61f;" 
 d="M0 812v-1024h1024v1024h-1024zM759 257h-204v-204h-69v204h-204v69h204v204h69v-204h204v-69z" />
+    <glyph glyph-name="close" unicode="&#xe626;" 
+d="M811 526l-61 61l-238 -239l-238 239l-61 -61l239 -238l-239 -238l61 -61l238 239l238 -239l61 61l-239 238z" />
     <glyph glyph-name="top" unicode="&#xe923;" 
 d="M535 408l294 -294q9 -9 22.5 -9t22.5 9v0q9 10 9 23t-9 23l-317 316q-18 19 -44.5 19t-45.5 -19l-317 -316q-9 -10 -9 -23t9 -23v0q9 -9 22.5 -9t22.5 9l294 294q10 10 23 10t23 -10z" />
     <glyph glyph-name="chart" unicode="&#xe604;" 
