@@ -20,13 +20,12 @@ PageAnimation.prototype = {
         var offsetT = this.list.offset().top;
         if(offsetT<scrollT+winH){
             this.items.addClass('animate');
-        }else{
-            this.items.removeClass('animate');
         }
     }
 };
 new PageAnimation($('.productlist'));
 new PageAnimation($('.advantagelist'));
 new PageAnimation($('.aboutlist'));
+new PageAnimation($('.newslist'));
 new PageAnimation($('.partnerlist'));
 

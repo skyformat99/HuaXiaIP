@@ -41,15 +41,8 @@ Slider.prototype = {
         },6000);
     }
 };
-
-document.addEventListener('DOMContentLoaded', function () {
-    var imgLoad0 = imagesLoaded( '.imgitems', { background: true }, function() {
-
-    });
-    imgLoad0.on( 'done', function() {
-        $('.loader-ct').css({'display':'none'});
-        $('.carousel').css({'display':'block'});
-        new Slider();
-    });
+$('#carousel').imagesLoaded().done(function(){
+    $('.loader-ct').css({'display':'none'});
+    $('.carousel').css({'display':'block'});
     new Slider();
 });

@@ -43,7 +43,7 @@ gulp.task('autoprefixer',['sass'],function(){
     gulp.src('src/css/*.css')
         .pipe(concat('style.css'))
         .pipe(autoprefixer({
-            browsers:['last 2 versions','Android>=4.0']
+            browsers:['last 2 versions','Android>=4.0','> 5% in CN','> 0.1%',"ie 6-8","Firefox < 20"]
         })).pipe(gulp.dest('dist/css'));
 });
 

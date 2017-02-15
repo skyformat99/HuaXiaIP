@@ -16,7 +16,7 @@ NavOperate.prototype = {
         this.aItems.each(function(index){
             _this.aItems.eq(index).on('click',function(e){
                 _this.stopDefault(e);
-                $('body').animate({scrollTop:_this.distanceArr[index]+10},800);
+                $('html,body').animate({scrollTop:_this.distanceArr[index]+10},800);
             })
         });
         $(window).on('scroll',function(){
@@ -33,11 +33,11 @@ NavOperate.prototype = {
         });
         $('.toproduct').on('click',function(e){
             _this.stopDefault(e);
-            $('body').animate({scrollTop:_this.distanceArr[1]+10},800);
+            $('html,body').animate({scrollTop:_this.distanceArr[1]+10},800);
         });
         $('.tocontact').on('click',function(e){
             _this.stopDefault(e);
-            $('body').animate({scrollTop:_this.distanceArr[6]+10},800);
+            $('html,body').animate({scrollTop:_this.distanceArr[6]+10},800);
         });
         $('.nav-toggle').on('click',function(){
             if(listShow){
@@ -61,10 +61,10 @@ NavOperate.prototype = {
     scrollTo:function(){
         var _this = this,
             winH = $(window).height(),
-            htmlH = parseInt($('html').height()),
+            htmlH = $(document).height(),
             scrollT = $(window).scrollTop();
 
-        if(_this.distanceArr[0]<scrollT && scrollT<=_this.distanceArr[1]){
+        if(_this.distanceArr[0]<=scrollT && scrollT<=_this.distanceArr[1]){
             _this.addActive(0);
         }
         if(_this.distanceArr[1]<scrollT && scrollT<=_this.distanceArr[2]){
@@ -82,7 +82,7 @@ NavOperate.prototype = {
         if(_this.distanceArr[5]<scrollT && scrollT<=_this.distanceArr[6]){
             _this.addActive(5);
         }
-        if(_this.distanceArr[6]<=scrollT || scrollT+winH===htmlH){
+        if(_this.distanceArr[6]<=scrollT || (scrollT+winH===htmlH && scrollT>0)){
             _this.addActive(6);
         }
     },

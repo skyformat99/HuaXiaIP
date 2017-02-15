@@ -12,6 +12,8 @@ $fontgray:#818181;
   margin:0;
   padding:0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
 }
 ul,li{
   list-style: none;
@@ -69,8 +71,9 @@ body {
   right:0;
   height:70px;
   background: #fff;
-  z-index:100;
+  z-index:999;
   box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  transform: translateZ(120px);
   .header-ct{
     width:100%;
     position:relative;
@@ -150,13 +153,13 @@ body {
         opacity:0;
         transition:opacity 1s;
         &:nth-child(1){
-          background-image:url('../img/1.jpeg');
+          background-image:url('../img/1.jpg');
         }
         &:nth-child(2){
-          background-image:url('../img/2.jpeg');
+          background-image:url('../img/2.jpg');
         }
         &:nth-child(3){
-          background-image:url('../img/3.jpeg');
+          background-image:url('../img/3.jpg');
         }
       }
       .imgitems.active{
@@ -175,17 +178,12 @@ body {
       h1{
         letter-spacing: 3px;
         text-shadow:0 2px 8px rgba(0, 0, 0, 0.15);
-        transform-style: preserve-3d;
-        perspective: 600px;
         span{
           display:none;
         }
         span.active{
           display:inline-block;
           animation: rotateX 1s ease-in-out forwards;
-          backface-visibility: hidden;
-          transition: all .4s cubic-bezier(.2, .85, .4, 1.275);
-          transform-origin: 50% 50%;
         }
       }
       p{
@@ -227,11 +225,13 @@ body {
     .productlist{
       height:100%;
       width:100%;
+      backface-visibility: hidden;
       li{
         box-shadow: 1px 5px 5px #ccc;
         overflow: hidden;
         cursor:pointer;
         transition:all 0.3s;
+        backface-visibility: hidden;
         &:hover{
           box-shadow: 3px 5px 20px rgba(0,0,0,0.3);
           transition:all 0.3s;
@@ -297,18 +297,21 @@ body {
     .advantagelist{
       width:100%;
       height:100%;
+      backface-visibility: hidden;
       li{
         height:100%;
         float:left;
         background: #F6F6F6;
         border-radius:8px;
         backface-visibility: hidden;
+        transform-style:preserve-3d;
         position:relative;
         cursor:pointer;
         box-shadow: 1px 5px 5px #ccc;
+        overflow:hidden;
         &:hover .flip-over{
           transform: rotateY(0);
-          z-index: 1;
+          z-index: 99;
         }
         &:hover .adv-icon-ct{
           transform: rotateY(180deg);
@@ -330,7 +333,7 @@ body {
           backface-visibility: hidden;
           transition: all .4s cubic-bezier(.2, .85, .4, 1.275);
           transform: rotateY(0);
-          z-index: 99;
+          z-index: 98;
           .adv-icon{
             display:inline-block;
             border-radius: 50%;
@@ -363,7 +366,6 @@ body {
           transition: all .4s cubic-bezier(.2, .85, .4, 1.275);
           transform: rotateY(-180deg);
           z-index: -1;
-          overflow:hidden;
           border-radius:8px;
           .cont-ct{
             position:absolute;
@@ -383,10 +385,11 @@ body {
         }
       }
       li.animate{
-        animation: fadeInUp ease-in-out forwards;
+        animation: flipInY ease-out forwards;
+        backface-visibility: visible!important;
         @for $i from 1 through 4 {
           &:nth-child(#{$i}) {
-            animation-duration: 800ms;
+            animation-duration: 1000ms;
             animation-delay: (200ms * $i)-50ms;
           }
         }
@@ -609,6 +612,15 @@ body {
           }
         }
       }
+      li.animate{
+        animation: fadeInUp ease-out forwards;
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            animation-duration: 600ms;
+            animation-delay: (200ms * $i)-50ms;
+          }
+        }
+      }
     }
   }
 }
@@ -639,7 +651,7 @@ body {
         }
       }
       li.animate{
-        animation: flipInY 1s ease-in-out forwards;
+        animation: flipInX 1s ease-in-out forwards;
         backface-visibility: visible!important;
       }
     }
