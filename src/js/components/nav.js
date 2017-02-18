@@ -42,11 +42,11 @@ NavOperate.prototype = {
         $('.nav-toggle').on('click',function(){
             if(listShow){
                 $(this).html('<i class="iconfont icon-liebiao"></i>');
-                $('.navlist').css({'display':'none'});
+                $('.navlist').removeClass('active');
                 listShow = false;
             }else{
                 $(this).html('<i class="iconfont icon-close"></i>');
-                $('.navlist').css({'display':'block'});
+                $('.navlist').addClass('active');
                 listShow = true;
             }
         })

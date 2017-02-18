@@ -60,13 +60,12 @@ $fontgray:#818181;
     width:100%;
     background: #fff;
     display:none;
-
   }
   @include mq($from: tablet,$until: desktop) {
-
+    display:block;
   }
   @include mq($from: desktop) {
-
+    display:block;
   }
 }
 .navlist li{
