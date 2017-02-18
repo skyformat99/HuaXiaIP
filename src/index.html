@@ -385,8 +385,38 @@
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
-<script src="http://api.map.baidu.com/api?v=2.0&ak=iGfEasG9VUL2vRtR5Iyuw9xlr7vZoghN" type="text/javascript"></script>
 <script src="js/bundle.js"></script>
-
+<script type="text/javascript">
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=iGfEasG9VUL2vRtR5Iyuw9xlr7vZoghN&callback=mapinit";
+        document.body.appendChild(script);
+    }
+    function mapinit() {
+        var map = new BMap.Map("dituContent");
+        var point = new BMap.Point(113.84494,22.611648);
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        map.centerAndZoom(point, 18);
+        var opts = {
+            type: BMAP_NAVIGATION_CONTROL_SMALL,
+            width : 220,
+            height: 100,
+            title : "华夏创新知识产权服务有限公司" ,
+            enableMessage:true,
+            message:"戳下面的链接看下地址喔~"
+        };
+        var infoWindow = new BMap.InfoWindow("地址：广东省深圳市宝安区航空路与顺昌路交汇处泰华梧桐岛夏至6A二层", opts);  // 创建信息窗口对象
+        marker.addEventListener("click", function(){
+            map.openInfoWindow(infoWindow,point);
+        });
+        map.addControl(new BMap.NavigationControl(opts));
+        map.addControl(new BMap.OverviewMapControl());
+        map.addControl(new BMap.MapTypeControl());
+        map.setCurrentCity("深圳");
+    }
+    window.onload = loadJScript;  //异步加载地图
+</script>
 </body>
 </html>
